@@ -1,0 +1,8 @@
+{
+  "name": "zones-thing",
+  "version": "1.0.0",
+  "description": "IRC But It's Sticky Notes",
+  "main": "index.js",
+  "author": "Sim <me@zhongyuen.dev>",
+  "license": "Unlicense"
+}

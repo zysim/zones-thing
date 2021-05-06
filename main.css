@@ -1,0 +1,22 @@
+p {
+  margin: 1em;
+  border-bottom: 1em solid gray16;
+}
+
+p.long_post {
+  color: white;
+  background-color: gray32;
+}
+p.short_post {
+  color: gray16;
+  background-color: lightgoldenrod2;
+}
+
+img, video{
+  float: right;
+  max-height: 5em;
+}
+p > img, video {
+  float: none;
+  max-height: 10em;
+}
