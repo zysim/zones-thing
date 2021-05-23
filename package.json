@@ -4,5 +4,16 @@
   "description": "IRC But It's Sticky Notes",
   "main": "index.js",
   "author": "Sim <me@zhongyuen.dev>",
-  "license": "Unlicense"
+  "license": "Unlicense",
+  "devDependencies": {
+    "@tsconfig/recommended": "^1.0.1",
+    "@types/marked": "^2.0.3",
+    "typescript": "^4.2.4"
+  },
+  "scripts": {
+    "start": "npx tsc"
+  },
+  "dependencies": {
+    "marked": "^2.0.5"
+  }
 }
