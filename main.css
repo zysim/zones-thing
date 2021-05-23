@@ -1,15 +1,28 @@
+body {
+  background-image: url('./assets/background.jpg');
+}
+
+.note {
+  width: 20%;
+  height: 20%;
+  border-radius: 5px;
+  border: 1px solid grey;
+  background-color: snow;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, .4);
+}
+
 p {
   margin: 1em;
-  border-bottom: 1em solid gray16;
+  border-bottom: 1em solid grey;
 }
 
 p.long_post {
   color: white;
-  background-color: gray32;
+  background-color: grey;
 }
 p.short_post {
   color: gray16;
-  background-color: lightgoldenrod2;
+  background-color: goldenrod;
 }
 
 img, video{
