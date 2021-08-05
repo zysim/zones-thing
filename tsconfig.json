@@ -13,6 +13,7 @@
         "node_modules",
     ],
     "include": [
+        "client/**/*.ts",
         "src/**/*.ts"
     ]
 }
