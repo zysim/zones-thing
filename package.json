@@ -1,19 +1,19 @@
 {
   "name": "zones-thing",
-  "version": "1.0.0",
-  "description": "IRC But It's Sticky Notes",
+  "version": "0.0.1",
+  "description": "IRC but it's sticky notes",
   "main": "index.js",
+  "repository": "git@github.com:zysim/zones-thing.git",
   "author": "Sim <me@zhongyuen.dev>",
-  "license": "Unlicense",
+  "license": "AGPL-3.0-or-newer",
+  "private": true,
+  "dependencies": {
+    "express": "^4.17.1",
+    "marked": "^2.1.3"
+  },
   "devDependencies": {
     "@tsconfig/recommended": "^1.0.1",
-    "@types/marked": "^2.0.3",
-    "typescript": "^4.2.4"
-  },
-  "scripts": {
-    "start": "npx tsc"
-  },
-  "dependencies": {
-    "marked": "^2.0.5"
+    "@types/marked": "^2.0.4",
+    "typescript": "^4.3.5"
   }
 }
