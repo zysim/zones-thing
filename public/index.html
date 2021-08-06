@@ -7,7 +7,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <script async src="main.js" type="module"></script>
   </head>
   <body>
     <div class="note">
@@ -18,5 +17,10 @@
       <p>Okay I'll try</p>
       <!-- <p>Test with image<img src="./assets/dummy.png" alt="dummy" /></p> -->
     </div>
+    <script async src="main.js" type="module"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      var socket = io();
+    </script>
   </body>
 </html>

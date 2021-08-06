@@ -6,8 +6,9 @@
         "moduleResolution": "Node",
         "strict": true,
         "noImplicitAny": true,
-        "outDir": ".",
-        "sourceMap": true
+        "outDir": "build",
+        "sourceMap": true,
+        "esModuleInterop": true,
     },
     "exclude": [
         "node_modules",
