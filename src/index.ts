@@ -21,13 +21,28 @@ const server = https.createServer(credentials, app)
 const io = new Server(server)
 
 app.use(express.static(publicRoot))
+app.use(express.json()) // For parsing application/json
+app.use(express.urlencoded({ extended: true })) // For parsing application/x-www-form-urlencoded
 
 app.get('/', (_: Request, res: Response) => {
   res.sendFile(path.join(publicRoot, 'index.html'))
 })
 
+// TODO: This isn't how you use Socket.IO. Keeping this here tho to remind me how to do standard CRUD shit
+// app.post('/newMessage', (req: Request, res: Response) => {
+//   res.set({
+//     Accept: 'application/json',
+//     'Content-Type': 'application/json; charset=utf-8',
+//   })
+//   console.table(req.body.msg)
+//   res.send(JSON.stringify({ test: 'hi' }))
+// })
+
 io.on('connection', socket => {
-  console.log('User connected')
+  socket.on('chat message', msg => {
+    io.emit('chat message', msg)
+  })
+
   socket.on('disconnect', reason => {
     // "transport close" -> User closed tab
     console.log(`User disconnected; reason: ${reason}`)
