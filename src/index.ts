@@ -40,7 +40,9 @@ app.get('/', (_: Request, res: Response) => {
 
 io.on('connection', socket => {
   socket.on('chat message', msg => {
+    console.log(`New message: ${msg}`)
     io.emit('chat message', msg)
+    // socket.broadcast.emit('chat message', msg)
   })
 
   socket.on('disconnect', reason => {

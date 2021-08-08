@@ -1,3 +1,5 @@
+// import io from '../node_modules/socket.io/client-dist/socket.io.js'
+
 type Note = HTMLDivElement
 
 const c = <K extends keyof HTMLElementTagNameMap>(
@@ -21,22 +23,19 @@ const testNote = c('div', {
 
 addMessage(testNote, '**Howdy**')
 
-document.body.append(testNote)
+// @ts-ignore We import this in index.html. Yes I should probably bundle this all eventually.
+const socket = io()
+;($('#new-message') as HTMLTextAreaElement).addEventListener('input', e => {
+  const { currentTarget, inputType } = e as InputEvent
+  if (inputType === 'insertLineBreak') {
+    e.preventDefault()
+    socket.emit('chat message', (currentTarget as HTMLTextAreaElement).value)
+    ;(currentTarget as HTMLTextAreaElement).value = ''
+  }
+})
 
-// TODO: This isn't how you use Socket.IO. Keeping this here tho to remind me how to do standard CRUD shit
-// ;($('#new-message') as HTMLTextAreaElement).addEventListener('input', e => {
-//   if ((e as InputEvent).inputType === 'insertLineBreak') {
-//     e.preventDefault()
-//     const textArea = e.currentTarget as HTMLTextAreaElement
-//     fetch('./newMessage', {
-//       method: 'POST',
-//       headers: {
-//         'Content-Type': 'application/json',
-//       },
-//       body: JSON.stringify({ msg: textArea.value }),
-//     })
-//       .then(res => res.json().then(json => console.table(json)))
-//       .catch(err => console.error(err))
-//     textArea.value = ''
-//   }
-// })
+socket.on('chat message', (msg: string) => {
+  console.log(`Recevied: ${msg}`)
+})
+
+document.body.append(testNote)
